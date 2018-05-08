@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="130c2901-78b1-46d6-bade-3030605e95dd" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/conf/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/conf/mysql/my.cnf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/conf/nginx/conf.d/certs/site2/gencert.sh" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/conf/nginx/conf.d/certs/site2/www.site2.com.crt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/conf/nginx/conf.d/certs/site2/www.site2.com.csr" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/conf/nginx/conf.d/certs/site2/www.site2.com.key" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/conf/nginx/conf.d/certs/site2/www.site2.com.origin.key" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/conf/nginx/conf.d/site1.conf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/conf/nginx/conf.d/site2.conf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/conf/nginx/nginx.conf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/conf/php/php-fpm.d/www.conf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/conf/php/php.ini" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/tmp/Dockerfile" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/tmp/index.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/tmp/nginx/Dockerfile" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/tmp/php/Dockerfile" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/tmp/php/pecl/libmemcached-1.0.18.tar.gz" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/tmp/php/pecl/memcached-3.0.4.tgz" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/tmp/php/pecl/redis-4.0.2.tgz" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/tmp/php/sources.list.stretch" />
+      <change beforePath="$PROJECT_DIR$/conf/README.md" afterPath="$PROJECT_DIR$/conf/README.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -74,12 +55,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/conf/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="420">
-                <caret line="20" column="17" lean-forward="true" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
+              <first_editor relative-caret-position="42">
+                <caret line="2" column="3" lean-forward="false" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -87,7 +68,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="my.cnf" pinned="false" current-in-tab="true">
+      <file leaf-file-name="my.cnf" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/conf/mysql/my.cnf">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -218,6 +199,11 @@
               <item name="Dockerfiles" type="b2602c69:ProjectViewProjectNode" />
               <item name="Dockerfiles" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="Dockerfiles" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dockerfiles" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="conf" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -276,17 +262,18 @@
       <workItem from="1525396662764" duration="9154000" />
       <workItem from="1525514947844" duration="6000" />
       <workItem from="1525573908224" duration="5000" />
-      <workItem from="1525762326478" duration="3639000" />
+      <workItem from="1525762326478" duration="3763000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32885000" />
+    <option name="totallyTimeSpent" value="33009000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24481075" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24481075" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -486,22 +473,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="420">
-            <caret line="20" column="17" lean-forward="true" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/conf/mysql/my.cnf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="42">
+            <caret line="2" column="3" lean-forward="false" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
