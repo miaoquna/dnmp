@@ -1,0 +1,2 @@
+<?
+echo "PHP in Docker";
