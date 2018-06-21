@@ -1,0 +1,119 @@
+# Compose是定义和运行多容器Docker应用程序的工具
+# Compose版本V3
+version: "3"
+# 服务集合
+services:
+  # mysql服务
+  mysql:
+    # 镜像地址
+    image: mysql:5.7
+    # 自定义容器名称
+    container_name: dnmp.mysql
+    # 端口映射
+    ports:
+      # 服务端口 本地端口:容器端口
+      - "3307:3306"
+    # 目录映射
+    volumes:
+      # 挂载文件目录 本地目录:容器目录:权限（ro-只读，rw-可读可写）
+      - ./conf/mysql/my.cnf:/etc/mysql/my.cnf:ro
+      - ./data/mysql/:/var/lib/mysql/:rw
+      - ./log/mysql:/var/log/dnmp/mysql:rw
+    # 网路名称
+    networks:
+      - net-mysql
+    # 定义容器的环境变量
+    environment:
+      # mysql容器特有的环境变量 root 用户密码
+      MYSQL_ROOT_PASSWORD: "123456"
+  # nginx服务
+  nginx:
+    # 镜像地址 alpine代表微容器，体积比较小，latest代表最新版本
+    #image: nginx:alpine
+    image: nginx:latest
+    # 容器名称
+    container_name: dnmp.nginx
+    # 端口映射
+    ports:
+      # 服务端口 本地端口:容器端口
+      - "81:80"
+      # ssl端口 本地端口:容器端口
+      - "443:443"
+    # 目录映射
+    volumes:
+      # 挂载文件目录 本地目录:容器目录:权限（ro-只读，rw-可读可写）
+      # 网站目录
+      - ./wwwroot/:/var/wwwroot/:rw
+      # nginx 虚拟机目录
+      - ./conf/nginx/conf.d:/etc/nginx/conf.d/:ro
+      # nginx 配置文件
+      - ./conf/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      # nginx 日志文件
+      - ./log/nginx:/var/log/dnmp/nginx:rw
+    # 网路名称
+    networks:
+      # 保持和php容器通信
+      - net-php
+
+  # redis服务
+  redis:
+    # 镜像地址 latest代表最新版本
+    image: redis:latest
+    # 容器名称
+    container_name: dnmp.redis
+    # 网络管理
+    networks:
+      # 加入网络
+      - net-redis
+    ports:
+      - "6380:6379"
+
+  memcached:
+    # 镜像地址 latest代表最新版本
+    image: memcached:latest
+    # 容器名称
+    container_name: dnmp.memcached
+    # 网络管理
+    networks:
+      # 加入网络
+      - net-memcached
+    ports:
+      - "11211:11211"
+
+  # php服务
+  php:
+    # 创建PHP容器，由于php容器比较复杂，这里选择使用 Dockerfile 文件创建容器
+    build: ./php/php7.2/
+    # 容器名称
+    container_name: dnmp.php
+    # expose暴露容器的端口给到其他链接此容器的link端口
+    expose:
+      # nginx需要链接php容器的9000端口进行脚本解析
+      - "9000"
+    # 目录映射
+    volumes:
+      # 挂载文件目录 本地目录:容器目录:权限（ro-只读，rw-可读可写）
+      # 网站目录
+      - ./wwwroot/:/var/wwwroot/:rw
+      # php配置文件
+      - ./conf/php/php.ini:/usr/local/etc/php/php.ini:ro
+      # www用户的php-fpm配置文件
+      - ./conf/php/php-fpm.d/www.conf:/usr/local/etc/php-fpm.d/www.conf:rw
+      # php日志文件
+      - ./log/php/:/var/log/dnmp/php/:rw
+    # 网路名称
+    networks:
+      # 加入 net-php网络
+      - net-php
+      # 链接 net-mysql网络
+      - net-mysql
+      # 链接 net-redis网络
+      - net-redis
+      # 链接 net-memcached网络
+      - net-memcached
+
+networks:
+  net-php:
+  net-mysql:
+  net-redis:
+  net-memcached:
