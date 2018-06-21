@@ -101,7 +101,6 @@ RUN apt-get install -y \
 #
 # PECL 扩展
 RUN apt-get install -y libmemcached-dev zlib1g-dev \
-    # memcached 扩展
     && pecl install memcached-3.0.4 \
     && docker-php-ext-enable memcached \
     #&& :\
