@@ -2,7 +2,7 @@
 FROM php:7.2-fpm
 
 # 更换软件源地址，使用国内源
-COPY ./sources.list.stretch /etc/apt/sources.list
+COPY sources.list.stretch /etc/apt/sources.list
 
 # 更新软件包
 RUN apt-get update
@@ -17,11 +17,11 @@ RUN apt-get install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libpng-dev \
-    && :\
-    && apt-get install -y libc-client-dev libkrb5-dev \
-    && docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
-    && docker-php-ext-install imap \
-    && :\
+    #&& :\
+    #&& apt-get install -y libc-client-dev libkrb5-dev \
+    #&& docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
+    #&& docker-php-ext-install imap \
+    #&& :\
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install gd \
     && :\
@@ -110,12 +110,12 @@ RUN apt-get install -y libmemcached-dev zlib1g-dev \
     #&& :\
     # redis 扩展
     && pecl install redis-3.1.4 \
-    && docker-php-ext-enable redis \
-    && :\
+    && docker-php-ext-enable redis
+    #&& :\
     # imagick扩展
-    && apt-get install -y libmagickwand-dev \
-    && pecl install imagick-3.4.3 \
-    && docker-php-ext-enable imagick
+    #&& apt-get install -y libmagickwand-dev \
+    #&& pecl install imagick-3.4.3 \
+    #&& docker-php-ext-enable imagick
 #
 # 其他扩展
 # RUN curl -fsSL 'https://xcache.lighttpd.net/pub/Releases/3.2.0/xcache-3.2.0.tar.gz' -o xcache.tar.gz \
