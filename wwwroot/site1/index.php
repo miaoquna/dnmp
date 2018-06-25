@@ -1,5 +1,6 @@
 <?php
 ini_set('display_errors', 'on');
+1231312
 
 $redis = new Redis();
 $redis->connect('dnmp.redis', 6379);

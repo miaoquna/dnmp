@@ -16,9 +16,12 @@ services:
     # 目录映射
     volumes:
       # 挂载文件目录 本地目录:容器目录:权限（ro-只读，rw-可读可写）
-      - ./conf/mysql/my.cnf:/etc/mysql/my.cnf:ro
+      - ./service/mysql/conf/my.cnf:/etc/mysql/my.cnf:rw
       - ./data/mysql/:/var/lib/mysql/:rw
-      - ./log/mysql:/var/log/dnmp/mysql:rw
+      - ./log/mysql:/var/log/mysql:rw
+    # 同步时区
+    environment:
+      - TZ=Asia/Shanghai
     # 网路名称
     networks:
       - net.dnmp
@@ -31,9 +34,22 @@ services:
   # redis服务
   redis:
     # 创建 redis 容器，由于 redis 容器需要自定义配置文件，这里选择使用 Dockerfile 文件创建容器
-    build: service/redis/
+    #build: service/redis/
+    # 镜像地址
+    image: redis:latest
     # 容器名称
     container_name: dnmp.redis
+    # 目录映射
+    volumes:
+      # 挂载文件目录 本地目录:容器目录:权限（ro-只读，rw-可读可写）
+      - ./service/redis/conf/redis.conf:/usr/local/etc/redis/redis.conf:ro
+      - ./data/redis/:/data:rw
+      - ./log/redis:/var/log/redis/:rw
+    # 同步时区
+    environment:
+      - TZ=Asia/Shanghai
+    # 启动 redis 服务
+    command: redis-server /usr/local/etc/redis/redis.conf
     # 网络管理
     networks:
       - net.dnmp
@@ -45,6 +61,9 @@ services:
     image: memcached:latest
     # 容器名称
     container_name: dnmp.memcached
+    # 同步时区
+    environment:
+      - TZ=Asia/Shanghai
     # 网络管理
     networks:
       - net.dnmp
@@ -67,11 +86,14 @@ services:
       # 网站目录
       - ./wwwroot/:/var/wwwroot/:rw
       # php配置文件
-      - ./conf/php/php.ini:/usr/local/etc/php/php.ini:ro
+      - ./service/php/php7.2/conf/php.ini:/usr/local/etc/php/php.ini:ro
       # www用户的php-fpm配置文件
-      - ./conf/php/php-fpm.d/www.conf:/usr/local/etc/php-fpm.d/www.conf:rw
+      - ./service/php/php7.2/conf/php-fpm.d/www.conf:/usr/local/etc/php-fpm.d/www.conf:rw
       # php日志文件
-      - ./log/php/:/var/log/dnmp/php/:rw
+      - ./log/php/:/var/log/php/:rw
+    environment:
+      # 同步时区
+      - TZ=Asia/Shanghai
     depends_on:
           - redis
           - memcached
@@ -103,11 +125,14 @@ services:
       # 网站目录
       - ./wwwroot/:/var/wwwroot/:rw
       # nginx 虚拟机目录
-      - ./conf/nginx/conf.d:/etc/nginx/conf.d/:ro
+      - ./service/nginx/conf/conf.d:/etc/nginx/conf.d/:ro
       # nginx 配置文件
-      - ./conf/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./service/nginx/conf/nginx.conf:/etc/nginx/nginx.conf:ro
       # nginx 日志文件
-      - ./log/nginx:/var/log/dnmp/nginx:rw
+      - ./log/nginx:/var/log/nginx:rw
+    environment:
+      # 同步时区
+      - TZ=Asia/Shanghai
     depends_on:
       - php
     links:
