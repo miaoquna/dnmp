@@ -4,6 +4,8 @@ FROM php:7.2-fpm
 # 更换软件源地址，使用国内源
 COPY sources.list.stretch /etc/apt/sources.list
 
+ENV TZ=Asia/Shanghai
+
 # 更新软件包
 RUN apt-get update
 
@@ -53,7 +55,7 @@ RUN apt-get install -y \
     && docker-php-ext-install sysvmsg \
     && docker-php-ext-install sysvsem \
     && docker-php-ext-install sysvshm \
-    && docker-php-ext-install opcache \
+    #&& docker-php-ext-install opcache \
     && :\
     && apt-get install -y \
             curl \
