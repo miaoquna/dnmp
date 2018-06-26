@@ -6,19 +6,18 @@
     │   ├—— mysql 数据库文件
     │   ├—— redis 数据库文件
     │   └—— ... 更多服务容器数据文件
-    ├—— log 日志文件夹 
-    │   ├—— mysql 日志文件
-    │   ├—— redis 日志文件
-    │   ├—— nginx 日志文件
-    │   ├—— php   日志文件
-    │   └—— ... 更多服务容器日志文件
+    ├── log 日志文件夹 
+    │   ├── mysql 日志文件
+    │   ├── redis 日志文件
+    │   ├── nginx 日志文件
+    │   ├── php   日志文件
+    │   └── ... 更多服务容器日志文件
     ├── sercie 服务文件夹
-    │   ├—— mysql 服务
+    │   ├── mysql 服务
     │   │   └—— conf 配置文件
-    │   ├—— redis 服务
+    │   ├── redis 服务
     │   │   └—— conf 配置文件
-    │   ├—— memcached 服务
-    │   ├—— php 服务
+    │   ├── php 服务
     │   │   ├—— php7.2
     │   │   └—— ... 更多php版本
     │   ├—— nginx 服务
@@ -102,3 +101,8 @@
     docker network ls	列出网络
     docker network prune	删除所有未使用的网络
     docker network rm	删除一个或多个网络
+    
+### 4、docker-compose 命令
+
+    docker-compose -f 指定 yml 文件，默认使用 docker-compose.yml 作为默认文件
+    docker-compose -f docker-compose.yml up    启动容器
