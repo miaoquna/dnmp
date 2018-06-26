@@ -16,24 +16,20 @@
     │   ├—— mysql 服务
     │   │   └—— conf 配置文件
     │   ├—— redis 服务
+    │   │   └—— conf 配置文件
     │   ├—— memcached 服务
     │   ├—— php 服务
+    │   │   ├—— php7.2
+    │   │   └—— ... 更多php版本
     │   ├—— nginx 服务
+    │   │   ├—— conf 配置文件
+    │   │   └—————— conf.d 虚拟机配置文件 
     │   └── ... 更多服务容器日志文件
-    ├── nginx
-    │   ├── Dockerfile
-    │   ├── nginx.conf
-    │   └── sites-enabled
-    │       ├── default.conf
-    │       └── evaengine.conf
-    ├── php
-    │   ├── Dockerfile
-    │   ├── composer.phar
-    │   ├── php-fpm.conf
-    │   ├── php.ini
-    │   ├── redis.tgz
-    └── redis
-       └── Dockerfile
+    ├── wwwroot 项目目录
+    │   ├── site1
+    │   ├── site2
+    │   ├── ... 更多项目
+    └── docker-compose.yml 服务自动化部署
 
 ## 常用 Docker 命令
 
