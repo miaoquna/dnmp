@@ -20,15 +20,15 @@
     │   ├── php 服务
     │   │   ├—— php7.2
     │   │   └── ... 更多php版本
-    │   ├—— nginx 服务
-    │   │   ├—— conf 配置文件
-    │   │   └—————— conf.d 虚拟机配置文件 
+    │   ├── nginx 服务
+    │   │   ├── conf 配置文件
+    │   │   └───── conf.d 虚拟机配置文件 
     │   └── ... 更多服务容器日志文件
     ├── wwwroot 项目目录
     │   ├── site1
     │   ├── site2
     │   └── ... 更多项目
-    └── docker-compose.yml 服务自动化部署
+    ├── docker-compose.yml 服务自动化部署
 
 ## 常用 Docker 命令
 
