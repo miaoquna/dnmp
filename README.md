@@ -2,9 +2,24 @@
 
 ## 目录结构
 
-    ├── mysql
-    ├── mysql
-    │   └── Dockerfile
+    ├── data 容器数据文件夹
+    │   ├—— mysql 数据库文件
+    │   ├—— redis 数据库文件
+    │   └—— ... 更多服务容器数据文件
+    ├—— log 日志文件夹 
+    │   ├—— mysql 日志文件
+    │   ├—— redis 日志文件
+    │   ├—— nginx 日志文件
+    │   ├—— php   日志文件
+    │   └—— ... 更多服务容器日志文件
+    ├── sercie 服务文件夹
+    │   ├—— mysql 服务
+    │   │   └—— conf 配置文件
+    │   ├—— redis 服务
+    │   ├—— memcached 服务
+    │   ├—— php 服务
+    │   ├—— nginx 服务
+    │   └── ... 更多服务容器日志文件
     ├── nginx
     │   ├── Dockerfile
     │   ├── nginx.conf
