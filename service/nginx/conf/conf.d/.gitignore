@@ -1,4 +1,6 @@
 *
-!/site1
-!/site2
 !.gitignore
+!/certs/site2
+!/certs
+!site1.conf
+!site2.conf
