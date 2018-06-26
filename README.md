@@ -28,7 +28,7 @@
     ├── wwwroot 项目目录
     │   ├── site1
     │   ├── site2
-    │   ├── ... 更多项目
+    │   └── ... 更多项目
     └── docker-compose.yml 服务自动化部署
 
 ## 常用 Docker 命令
