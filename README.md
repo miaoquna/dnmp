@@ -3,6 +3,7 @@
 ## 目录结构
 
     ├── mysql
+    ├── mysql
     │   └── Dockerfile
     ├── nginx
     │   ├── Dockerfile
