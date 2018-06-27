@@ -355,5 +355,3 @@
 ##### docker-compose exec
 
 进入指定的容器。和 docker exec 命令类似
-
-#### 环境变量

@@ -24,12 +24,13 @@ services:
       - TZ=Asia/Shanghai
     # 网路名称
     networks:
-      - net.dnmp
+      - network
     # 定义容器的环境变量
     environment:
       # mysql容器特有的环境变量 root 用户密码
       MYSQL_ROOT_PASSWORD: "123456"
-
+    # 开机启动
+    restart: always
 
   # redis服务
   redis:
@@ -52,10 +53,11 @@ services:
     command: redis-server /usr/local/etc/redis/redis.conf
     # 网络管理
     networks:
-      - net.dnmp
+      - network
     ports:
       - "6380:6379"
-
+    # 开机启动
+    restart: always
   memcached:
     # 镜像地址 latest代表最新版本
     image: memcached:latest
@@ -66,10 +68,11 @@ services:
       - TZ=Asia/Shanghai
     # 网络管理
     networks:
-      - net.dnmp
+      - network
     ports:
       - "11211:11211"
-
+    # 开机启动
+    restart: always
   # php服务
   php:
     # 创建PHP容器，由于php容器比较复杂，这里选择使用 Dockerfile 文件创建容器
@@ -104,8 +107,9 @@ services:
       - "mysql:dnmp.mysql"
     # 网路名称
     networks:
-      - net.dnmp
-
+      - network
+    # 开机启动
+    restart: always
   # nginx服务
   nginx:
     # 镜像地址 alpine代表微容器，体积比较小，latest代表最新版本
@@ -116,7 +120,7 @@ services:
     # 端口映射
     ports:
       # 服务端口 本地端口:容器端口
-      - "81:80"
+      - "80:80"
       # ssl端口 本地端口:容器端口
       - "443:443"
     # 目录映射
@@ -139,6 +143,8 @@ services:
       - "php:dnmp.php"
     # 网路名称
     networks:
-      - net.dnmp
+      - network
+    # 开机启动
+    restart: always
 networks:
-  net.dnmp:
+  network:
