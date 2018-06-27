@@ -355,3 +355,11 @@
 ##### docker-compose exec
 
 进入指定的容器。和 docker exec 命令类似
+
+# windows注意事项
+
+#### docker-composer.yml 中的 version 改为 2 如果 3 不行的话
+
+#### 设置 docker 和 windows 共享 C 盘
+
+![共享设置](./images/01share.jpg "共享设置")
