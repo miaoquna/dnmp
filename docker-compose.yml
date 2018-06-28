@@ -1,6 +1,6 @@
 # Compose是定义和运行多容器Docker应用程序的工具
 # Compose版本V3
-version: "2"
+version: "3"
 # 服务集合
 services:
   # mysql服务
