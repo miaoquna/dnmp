@@ -135,7 +135,7 @@ RUN apt-get install -y libmemcached-dev zlib1g-dev \
 # composer 包管理工具
 # RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer
 ####### composer 包管理工具 #############
-ADD composer.phar /usr/local/bin/composer
-RUN chmod 755 /usr/local/bin/composer
-RUN composer config -g repo.packagist composer https://packagist.phpcomposer.com
+#ADD composer.phar /usr/local/bin/composer
+#RUN chmod 755 /usr/local/bin/composer
+#RUN composer config -g repo.packagist composer https://packagist.phpcomposer.com
 ####################
