@@ -358,8 +358,14 @@
 
 # windows注意事项
 
+#### 将测试域名 `site1.com` `www.site1.com` `site2.com` `www.site2.com` 配置到系统的hosts文件中
+
+#### 使用管理员权限启动cmd
+
 #### docker-composer.yml 中的 version 改为 2 如果 3 不行的话
 
 #### 设置 docker 和 windows 共享 C 盘
+
+如果没有设置共享，mysql和redis容器会启动失败。
 
 ![共享设置](./images/01share.jpg "共享设置")
