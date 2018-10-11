@@ -1,6 +1,6 @@
 # Compose是定义和运行多容器Docker应用程序的工具
-# Compose版本V3
-version: "3"
+# Compose版本V2
+version: "2"
 # 服务集合
 services:
   # mysql服务
@@ -12,7 +12,7 @@ services:
     # 端口映射
     ports:
       # 服务端口 本地端口:容器端口
-      - "3307:3306"
+      - "3306:3306"
     # 目录映射
     volumes:
       # 挂载文件目录 本地目录:容器目录:权限（ro-只读，rw-可读可写）
@@ -55,7 +55,7 @@ services:
     networks:
       - network
     ports:
-      - "6380:6379"
+      - "6379:6379"
     # 开机启动
     restart: always
   memcached:
@@ -122,7 +122,7 @@ services:
       # 服务端口 本地端口:容器端口
       - "80:80"
       # ssl端口 本地端口:容器端口
-      - "4433:443"
+      - "443:443"
     # 目录映射
     volumes:
       # 挂载文件目录 本地目录:容器目录:权限（ro-只读，rw-可读可写）
