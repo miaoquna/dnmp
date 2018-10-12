@@ -24,8 +24,8 @@ try {
 try {
     $memcached = new Memcached('mc');
     $memcached->addServer('dnmp.memcached', '11211');
-    $redis->set('test', 'hello docker memcached！');
-    echo $redis->get('test')."<br/>";
+    $memcached->set('test', 'hello docker memcached！');
+    echo $memcached->get('test')."<br/>";
 } catch (Exception $exception) {
     echo $exception->getMessage()."<br/>";
 }
