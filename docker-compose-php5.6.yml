@@ -76,7 +76,7 @@ services:
   # php服务
   php:
     # 创建PHP容器，由于php容器比较复杂，这里选择使用 Dockerfile 文件创建容器
-    build: service/php/php7.2/
+    build: service/php/php5.6/
     # 容器名称
     container_name: dnmp.php
     # 对外暴露的访问端口
@@ -89,9 +89,9 @@ services:
       # 网站目录
       - ./wwwroot/:/var/wwwroot/:rw
       # php配置文件
-      - ./service/php/php7.2/conf/php.ini:/usr/local/etc/php/php.ini:ro
+      - ./service/php/php5.6/conf/php.ini:/usr/local/etc/php/php.ini:ro
       # www用户的php-fpm配置文件
-      - ./service/php/php7.2/conf/php-fpm.d/www.conf:/usr/local/etc/php-fpm.d/www.conf:rw
+      - ./service/php/php5.6/conf/php-fpm.d/www.conf:/usr/local/etc/php-fpm.d/www.conf:rw
       # php日志文件
       - ./log/php/:/var/log/php/:rw
     environment:

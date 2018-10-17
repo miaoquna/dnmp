@@ -58,6 +58,20 @@
 
 #### 关闭： 在 dnmp/ 目录执行 `docker-compose down` 即可
 
+#### 切换php版本
+
+默认使用的配置是“docker-compose.yml”，此配置启动的是php7.2版本。如果需要php5.6，可以使用以下命令：
+
+```bash
+docker-compose -f docker-compose-php5.6.yml build 
+docker-compose -f docker-compose-php5.6.yml up -d
+```
+切换回7.2：
+```bash
+docker-compose -f docker-compose.yml build 
+docker-compose -f docker-compose.yml up -d
+```
+
 ## windows注意事项
 
 
@@ -68,10 +82,5 @@
 如果没有设置共享，mysql和redis容器会启动失败。
 
 ![共享设置](./images/01share.jpg "共享设置")
-
-## 待开发[TODO]
-
-#### docker-compose-php5.3.yml
-#### docker-compose-php5.6.yml
 
 ## [常用 Docker 命令](./docker-learn.md)
